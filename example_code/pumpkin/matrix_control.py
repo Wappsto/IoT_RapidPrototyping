@@ -7,7 +7,7 @@ import time
 #from random import randrange
 import queue
 import threading
-import send_data
+import generic.send_data as send_data
 import uuid_defines as my_ids
 
 device = led.matrix(cascaded=4)

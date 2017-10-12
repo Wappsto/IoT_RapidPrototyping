@@ -1,7 +1,13 @@
 # Pumpkin example code
 
-Peripheral code for the example shown in [HacksterIO - Pumpkin](http://www.inserthere.com)
+Peripheral code for the example shown in [HacksterIO - Pumpkin Pi](https://www.hackster.io/seluxit/pumpkin-pi-5076a1)
 
-Each file must be initialised in the top of the generated peripherals.py, and the get/set methods have to be inserted correctly.
+Each file must be initialised in the top of the generated peripherals.py file (generated from the 'IoT Rapid Prototyping' wapp in Wappsto), and the get/set methods have to be inserted correctly.
 
-Notice that the periodical update of temperature in temperature_reader.py have to be edited with the correct UUIDs.
+In the folder 'finishedExamples' we've included an example file of how that might look called 'peripherals_eg.py'. Otherwise refer to the hackster.io tutorial.
+
+Notice also that the periodical update of temperature in temperature_reader.py have to be edited with the correct names. The code is marked 'TODO' where they need to be updated. In your generated code, find the file 'uuid_defines.py' to check the names generated based on your input in the 'IoT Rapid Prototyping' tool. 
+
+Finally, at the top of the temparature_reader.py file, enter the actual id of your thermometer. If you've followed the hackster.io tutorial, you will find that under /sys/bus/w1/devices. 
+
+In the folder 'finishedExamples' we've also included an example file of how that might look called 'temparature_reader_eg.py. Otherwise refer again to the hackster.io tutorial.

@@ -1,7 +1,6 @@
 enableCamera = True
 if enableCamera:
     from picamera import PiCamera
-import send_data
 import os
 import threading
 import queue
