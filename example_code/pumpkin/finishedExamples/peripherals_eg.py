@@ -38,7 +38,7 @@ class Peripherals:
         camera_control.setY(value)
 
     def get_value_mouth__text(self):
-        matrix_control.getText()
+        return matrix_control.getText()
 
     def get_value_eyes__red(self):
         return led_control.reportRed()
