@@ -2,6 +2,8 @@
 
 Peripheral code for the example shown in [HacksterIO - Pumpkin Pi](https://www.hackster.io/seluxit/pumpkin-pi-5076a1)
 
+Wappsto application for the pumpkin code: https://github.com/Seluxit/wappsto/tree/master/Pumpkin/
+
 Each file must be initialised in the top of the generated peripherals.py file (generated from the 'IoT Rapid Prototyping' wapp in Wappsto), and the get/set methods have to be inserted correctly.
 
 In the folder 'finishedExamples' we've included an example file of how that might look called 'peripherals_eg.py'. Otherwise refer to the hackster.io tutorial.
