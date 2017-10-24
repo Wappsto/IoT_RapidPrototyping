@@ -8,63 +8,64 @@ class Peripherals:
 
     def __init__(self, sendQueue):
         print("Peripherals initialization")
-        self.matrix_control.MatrixControl(sendQueue)
-        self.led_control.LedControl(sendQueue)
-        self.pumpkin_audio.PumpkinAudio(sendQueue)
-        self.temperature_reader.TemperatureSensor(sendQueue)
+        self.matrix = matrix_control.MatrixControl(sendQueue)
+        self.led = led_control.LedControl(sendQueue)
+        self.audio = pumpkin_audio.PumpkinAudio(sendQueue)
+        self.temperature = temperature_reader.TemperatureSensor(sendQueue)
+        self.camera = camera_control.CameraControl(sendQueue)
 
     def set_value_mouth__text(self, value):
-        matrix_control.setText(value)
+        self.matrix.setText(value)
 
     def set_value_eyes__red(self, value):
-        self.led_control.setLedRed(value)
+        self.led.setLedRed(value)
 
     def set_value_eyes__green(self, value):
-        self.led_control.setLedGreen(value)
+        self.led.setLedGreen(value)
 
     def set_value_eyes__blue(self, value):
-        self.led_control.setLedBlue(value)
+        self.led.setLedBlue(value)
 
     def set_value_eyes__brightness(self, value):
-        self.led_control.setLedBrightness(value)
+        self.led.setLedBrightness(value)
 
     def set_value_eyes__pulse(self, value):
-        self.led_control.setLedTime(value)
+        self.led.setLedTime(value)
 
     def set_value_nose__x(self, value):
-        self.camera_control.setX(value)
+        self.camera.setX(value)
 
     def set_value_nose__y(self, value):
-        self.camera_control.setY(value)
+        self.camera.setY(value)
 
     def get_value_mouth__text(self):
-        return self.matrix_control.getText()
+        return self.matrix.getText()
 
     def get_value_eyes__red(self):
-        return self.led_control.reportRed()
+        return self.led.reportRed()
 
     def get_value_eyes__green(self):
-        return self.led_control.reportGreen()
+        return self.led.reportGreen()
 
     def get_value_eyes__blue(self):
-        return self.led_control.reportBlue()
+        return self.led.reportBlue()
 
     def get_value_eyes__brightness(self):
-        return self.led_control.reportBrightness()
+        return self.led.reportBrightness()
 
     def get_value_eyes__pulse(self):
-        return self.led_control.getLedTime()
+        return self.led.getLedTime()
 
     def get_value_nose__image(self):
-        self.camera_control.takePicture()
+        self.camera.takePicture()
         return 0
 
     def get_value_nose__x(self):
-        return self.camera_control.reportX()
+        return self.camera.reportX()
 
     def get_value_nose__y(self):
-        return self.camera_control.reportY()
+        return self.camera.reportY()
 
     def get_value_tongue__temperature(self):
-        return self.temperature_reader.getTemperature()
+        return self.temperature.getTemperature()
 
