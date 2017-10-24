@@ -99,65 +99,63 @@ class LedControl():
 
     def setLedRed(self, value):
         self.lock1.acquire()
-        self.ledBoth.red = value
-        self.ledBoth.currentRed = self.colorScale(value)
-        self.sendToQueue.put(report)
-        self.sendToQueue.put(control)
+        self.ledBoth.red = int(value)
+        self.ledBoth.currentRed = self.colorScale(int(value))
         self.lock1.release()
 
     def setLedGreen(self, value):
         self.lock1.acquire()
-        self.ledBoth.green = value
-        self.ledBoth.currentGreen = self.colorScale(value)
+        self.ledBoth.green = int(value)
+        self.ledBoth.currentGreen = self.colorScale(int(value))
         self.lock1.release()
 
     def setLedBlue(self, value):
         self.lock1.acquire()
-        self.ledBoth.blue = value
-        self.ledBoth.currentBlue = self.colorScale(value)
+        self.ledBoth.blue = int(value)
+        self.ledBoth.currentBlue = self.colorScale(int(value))
         self.lock1.release()
 
     def setLedBrightness(self, value):
         self.lock1.acquire()
-        self.ledBoth.intensity = value
-        self.ledBoth.currentIntensity = value
+        self.ledBoth.intensity = int(value)
+        self.ledBoth.currentIntensity = int(value)
         self.lock1.release()
 
     def setLedTime(self, value):
         self.lock1.acquire()
-        self.ledBoth.time = value
-        if value == 0:
+        self.ledBoth.time = int(value)
+        if int(value) == 0:
             self.ledBoth.currentRed = self.colorScale(self.ledBoth.red)
             self.ledBoth.currentGreen = self.colorScale(self.ledBoth.green)
             self.ledBoth.currentBlue = self.colorScale(self.ledBoth.blue)
             self.ledBoth.currentIntensity = self.ledBoth.intensity
         self.lock1.release()
 
-    def reportRed(self):
+    def getLedRed(self):
         self.lock1.acquire()
         return_value = self.ledBoth.red
         self.lock1.release()
         return return_value
 
-    def reportGreen(self):
+    def getLedGreen(self):
         self.lock1.acquire()
         return_value = self.ledBoth.green
         self.lock1.release()
         return return_value
 
-    def reportBlue(self):
+    def getLedBlue(self):
         self.lock1.acquire()
         return_value = self.ledBoth.blue
         self.lock1.release()
         return return_value
 
-    def reportBrightness(self):
+    def getLedBrightness(self):
         self.lock1.acquire()
         return_value = self.ledBoth.intensity
         self.lock1.release()
         return return_value
 
-    def reportTime(self):
+    def getLedTime(self):
         self.lock1.acquire()
         return_value = self.ledBoth.time
         self.lock1.release()

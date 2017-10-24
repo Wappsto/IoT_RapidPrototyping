@@ -8,9 +8,10 @@ import uuid_defines as my_ids
 import base64
 import generic.send_data as send_data
 #from time import sleep
+import pumpkin_audio
 
 baseDir, baseFile = os.path.split(os.path.abspath(__file__))
-FILENAME = baseDir + "foo.jpg"
+FILENAME = baseDir + "/pumpkin.jpg"
 
 class CameraControl():
 
@@ -28,6 +29,7 @@ class CameraControl():
         self.resolution_x = 160
         self.resolution_y = 120
         self.lock = threading.Lock()
+        self.audio = pumpkin_audio.PumpkinAudio(None)
 
     def cameraThread(self):
         while True:
@@ -46,12 +48,14 @@ class CameraControl():
             imageBase64 = base64.b64encode(imageBytes)
             sendData.data = "data:image/jpg;base64,"+imageBase64.decode('utf-8')
             sendData.network_id = my_ids.NETWORK_ID
-            sendData.device_id = my_ids.CAMERA_DEVICE_ID
-            sendData.service_id = my_ids.CAMERA_SERVICE_ID
-            sendData.report_id = my_ids.CAMERA_VALUE_REPORT_ID
+            sendData.device_id = my_ids.NOSE__DEVICE_ID
+            sendData.value_id = my_ids.camera_value_id TODO
+            sendData.state_id = my_ids.camera_report_id TODO
             #sendData.hexSize = os.stat(FILENAME).st_size
             self.respondQueue.put(sendData)
             self.triggerQueue.task_done()
+            self.audio.setAudio(1)
+
 
             #print(open('foo.jpg', "rb").read())
 

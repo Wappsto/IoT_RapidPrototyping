@@ -71,8 +71,8 @@ class PumpkinAudio:
 
     def sendReportPlayingStopped(self):
         print("Playing has stopped")
-        report = send_data.SendData(send_data.SEND_REPORT, data="0", network_id=my_ids.NETWORK_ID, device_id=my_ids.AUDIO__DEVICE_ID, value_id=my_ids.AUDIO__PLAY__VALUE_ID, state_id=my_ids.AUDIO__PLAY__STATE_REPORT_ID)
-        self.sendToQueue.put(report)
+        #report = send_data.SendData(send_data.SEND_REPORT, data="0", network_id=my_ids.NETWORK_ID, device_id=my_ids.TODO, value_id=my_ids.TODO, state_id=my_ids.TODO)
+        #self.sendToQueue.put(report)
 
     def setVolume(self, volume):
         # pygame vol 0.0-1.0 ours 0-100

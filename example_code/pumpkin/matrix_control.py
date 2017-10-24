@@ -38,6 +38,8 @@ class MatrixControl():
         self.writeThread.start()
 
         self.sendToQueue = sendingQueue
+        device.scroll_down()
+        device.orientation(90)
 
     def continousWriteThread(self):
         while True:
@@ -46,8 +48,6 @@ class MatrixControl():
             #print(using)
             #print(int(using))
             device.brightness(int(using))
-            device.scroll_down()
-            device.orientation(90)
             device.show_message(self.text, font=proportional(CP437_FONT))
             self.lock.release()
             time.sleep(1)

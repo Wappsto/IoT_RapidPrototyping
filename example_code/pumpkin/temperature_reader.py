@@ -6,7 +6,7 @@ import queue
 import generic.send_data as send_data
 import uuid_defines as my_ids
 
-path = "/sys/bus/w1/devices/28-0416237738ff/w1_slave" TODO
+path = "/sys/bus/w1/devices/28-0416XXXXXXX/w1_slave" TODO
 
 class TemperatureSensor():
 
@@ -33,7 +33,7 @@ class TemperatureSensor():
                     tempData = data[1][equals_pos+2:]
                     self.lock.acquire()
                     self.celcius = float(tempData) / 1000
-                    if self.update and (abs(self.celcius, self.lastSentValue) > self.differenceToTriggerReport):
+                    if self.update and (abs(self.celcius - self.lastSentValue) > self.differenceToTriggerReport):
                         print("Sending temperature: %f" % self.celcius)
                         self.lastSentValue = self.celcius
                         report = send_data.SendData(send_data.SEND_REPORT, data=str(self.celcius), network_id=my_ids.NETWORK_ID, device_id=my_ids.TODO, value_id=my_ids.TODO, state_id=my_ids.TODO)
