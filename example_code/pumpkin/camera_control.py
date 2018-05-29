@@ -44,7 +44,8 @@ class CameraControl():
             self.lock.release()
             #camera.stop_preview()
             sendData = send_data.SendData(send_data.SEND_REPORT)
-            imageBytes = open(FILENAME, "rb").read()
+            with open(FILENAME, "rb") as file:
+                imageBytes = file.read()
             imageBase64 = base64.b64encode(imageBytes)
             sendData.data = "data:image/jpg;base64,"+imageBase64.decode('utf-8')
             sendData.network_id = my_ids.NETWORK_ID
