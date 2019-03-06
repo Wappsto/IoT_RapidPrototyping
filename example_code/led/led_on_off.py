@@ -26,6 +26,6 @@ class ThreadExample:
             GPIO.output(ledPin, GPIO.HIGH)
             print("on")
 
-        send__Report(value, self.sendToQueue, self.uuid.NETWORK_ID, self.uuid.getled_on_off())
+        send__Report(value, self.sendToQueue, self.uuid.NETWORK_ID, self.uuid.getbulb_led())
 
 
