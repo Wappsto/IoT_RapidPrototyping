@@ -1,6 +1,6 @@
 # Pumpkin example code
 
-** NB. This example is outdated and will not work with the current version of Wappsto or the IOT creator. You can still use it for reference, but you will need to do more work by your self. **
+**NB. This example is outdated and will not work with the current version of Wappsto or the IOT creator. You can still use it for reference, but you will need to do more work by your self.**
 
 Peripheral code for the example shown in [HacksterIO - Pumpkin Pi](https://www.hackster.io/seluxit/pumpkin-pi-5076a1)
 
