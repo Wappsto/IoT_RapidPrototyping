@@ -1,31 +1,33 @@
-from handlers import send__Report
-import uuid_defines as my_ids
+
+# Initialize
+# requires: sudo apt-get install rpi.gpio
 import RPi.GPIO as GPIO
+led_pin = 17
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(led_pin, GPIO.OUT)
 
-ledPin = 17
 
-class ThreadExample:
 
-    def __init__(self, send_queue):
-        self.uuid = my_ids.UUID()
-        self.sendToQueue = send_queue
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(ledPin, GPIO.OUT)
-        GPIO.output(ledPin, GPIO.LOW)
 
-    def get_value(self):
-        return_value = GPIO.input(ledPin)
-        return return_value
-
-    def set_value(self, value):
-        if value=="0":
-            GPIO.output(ledPin, GPIO.LOW)
-            print("off")
-
+# replace "def value_callback(the_value, action_type):" with this
+def led_value_callback(value, action_type):
+    if action_type == 'refresh':
+        msg = "Refreshing led value: {}".format(value.name)
+        wapp_log.info(msg)
+        value.update(GPIO.input(led_pin))
+    elif action_type == 'set':
+        msg = "Set value: {} to {}.".format(value.name, value.last_controlled)
+        wapp_log.info(msg)
+        if value.last_controlled == "0":
+            GPIO.output(led_pin, GPIO.LOW)
         else:
-            GPIO.output(ledPin, GPIO.HIGH)
-            print("on")
-
-        send__Report(value, self.sendToQueue, self.uuid.NETWORK_ID, self.uuid.getbulb_led())
+            GPIO.output(led_pin, GPIO.HIGH)
+        value.update(GPIO.input(led_pin))
 
 
+
+
+# replace "for device in service.instance.device_list:"-loop with this:
+led_device = service.get_device("Bulb")
+led_value = led_device.get_value("LED")
+led_value.set_callback(led_value_callback)
