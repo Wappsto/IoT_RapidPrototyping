@@ -7,14 +7,14 @@ You'll find solutions to workshop challenges and walkthroughs in the relevant fo
 
 You can also find examples on how to implement this with peripherals connected to a Raspberry Pi.
 
-Wappsto:
+### Wappsto:
 
  > https://wappsto.com
 
-IoT Rapid Prototyping Wapp:
+### IoT Rapid Prototyping Wapp:
 
  > https://store.wappsto.com/application/slx_iot_creator
 
-IoT Creator Wapp (The legacy "IoT rapid prototyping" wapp):
+### IoT Creator Wapp (The legacy "IoT rapid prototyping" wapp):
 
  > https://store.wappsto.com/application/seluxit_iot_creator
