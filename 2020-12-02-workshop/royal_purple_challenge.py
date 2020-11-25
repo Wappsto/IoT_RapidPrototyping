@@ -10,11 +10,8 @@
 # * Correct the following network/porcupine ID to yours
 network_uuid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 
-import os
 import requests
 import json
-
-os.chdir("2020-12-02-workshop")
 
 # Helper functions
 def services(endpoint):
@@ -31,7 +28,7 @@ s = requests.Session()
 # Get an x-session ID / token
 xsession_request = s.post(
     services("/2.0/session"),
-    json = json.load(open("creds.json", "rb"))
+    json = json.load(open("2020-12-02-workshop/creds.json", "rb"))
     # json = {'username': "<USERNAME>", 'password': "<PASSWORD>", 'remember_me': True}
 )
 
