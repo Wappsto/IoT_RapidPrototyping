@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-# This script demonstrates very basic interactions with Wappsto's RESTful API
+# This python script demonstrates very basic interactions with Wappsto's RESTful API
 
 # It assumes
 # - A Wappsto account
 # - A working IoT device with a suitkase relay attached (can be easily modifed with others)
 # You need to
-# * Correct username and password in the creds.json file
+# * Correct username and password in the "creds.json" file
 # * Correct the following network/porcupine ID to yours
 network_uuid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 
