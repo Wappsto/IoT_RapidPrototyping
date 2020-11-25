@@ -14,7 +14,7 @@ where `XXXXXXXX` is the first 8 digits of your porcupine UUID.
 
 It that does not work, you need to find the IP of the porcupine. One way is the following:
 
-1. Find your own IP
+Find your own IP:
 
 ```bash
 ip a
