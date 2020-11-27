@@ -44,8 +44,8 @@ network={
 
 Verify you have an ip and connection via wlan with `ip a` or `ifconfig`.
 
-Please note: This Is this the "Standard Way" to set up WiFi with the terminal in Linux.
-If there is Problem try reset the service:
+Please note: This is a relatively standard way to set up WiFi with the terminal in Linux.
+If there is problem try reset the service:
 
 ```bash
 systemctl restart wpa_supplicant@wlan0
