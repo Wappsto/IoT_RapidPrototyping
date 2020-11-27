@@ -65,6 +65,12 @@ For more info, see
 ioinfo --help
 ```
 
+For example:
+
+```bash
+ioinfo -j
+```
+
 ## 4. Add and remove password
 
 Add password with
