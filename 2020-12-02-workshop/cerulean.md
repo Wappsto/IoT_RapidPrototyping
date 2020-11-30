@@ -1,11 +1,9 @@
-
 # Cerulean solution
 
 Setup WiFi on your porcupine
 
 * Hint 1: Use the Seluxit Device List app
 * Hint 2: Using ssh and configuring linux
-
 
 ## Via Seluxit Device List
 
