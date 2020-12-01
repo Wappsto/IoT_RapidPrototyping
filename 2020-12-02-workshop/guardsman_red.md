@@ -1,11 +1,21 @@
 # Walkthrough for guardsman red
 
-SSH into your porcupine and do stuff
+SSH into your porcupine and do stuff.
+
+1. Find OS version and details
+2. Find full UUID.
+3. Print out pin header information (ioinfo)
+4. Install Blu-Fi onboarding support
+5. Add / remove root password
+6. Investigate services with systemctl and journalctl ‘wappsto-device’
+7. Stop the rapid prototype runner (remember to start again if needed)
 
 This walkthrough assumes
 
 * A working porcupine on the same internal network (submask) as you
 * Have a linux bash available
+
+## How to ssh to your PQPI
 
 You should be able to `ssh` directly to your porcupine  following using
 
@@ -87,7 +97,23 @@ Remove password with:
 passwd -d root
 ```
 
-## 5. Investigate services with systemctl and journalctl ‘wappsto-device’
+## 5. Enable BluFi onboarding
+
+On the Porcupine, execute:
+
+```bash
+opkg install slx-blufi
+```
+
+Wait a bit after installation has finished, the Porcupine should now be discoverable in the "SLX Device List" app as "PQPI-XXXXXXXX".
+
+A reboot may be nessesary if the hostname does not show or shown as "Unknown".
+
+```bash
+reboot
+```
+
+## 6. Investigate services with systemctl and journalctl ‘wappsto-device’
 
 Get a list the running services:
 
@@ -115,7 +141,7 @@ journalctl -u rapid-prototype-runner -f
 ```
 
 
-## 6. Stop rapid prototype runner
+## 7. Stop rapid prototype runner
 
 Rapid-prototype-runner is running as a service that *always* downloads the newest deployed code from Wappsto. To disable this, and enable you to change the deployed code, without it getting overwritten.
 
@@ -125,9 +151,7 @@ touch ~/wappsto-device.conf
 
 This simply creates an empty file.
 
-
-
-## X. Last factory reset time
+## 8. Last factory reset time
 
 Want to know the last time the Porcupine was Factory reset?
 
