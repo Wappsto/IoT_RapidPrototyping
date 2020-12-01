@@ -1,0 +1,26 @@
+body{
+    background-color: #9c1f50;
+    color: #fff;
+    font-family: sans-serif;
+    padding: 40px;
+    font-size:90%;
+  }
+
+  a, .important{
+    color: #fff543;
+  }
+
+  section {
+    padding-left:30px;
+  }
+
+  h3 {
+    margin-left: -15px;
+  }
+
+  ul.listStyle{
+    list-style: circle;
+  }
+  li:nth-child(3) {
+    color: #eee;
+  }
