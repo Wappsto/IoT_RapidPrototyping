@@ -1,5 +1,8 @@
 # IoT Rapid Prototyping - OUTDATED
 
+The code in this repository is outdated. Consider migrating to https://github.com/Wappsto/python-wappsto-iot
+
+...
 This repository holds references for you to get your devices online as easily as possible and how to interact with it.
 At the moment this is most easily achieved via the automatically generated python code and deployment (to a Seluxit Porcupine) by "IoT Rapid Prototyping" wapp at http://wappsto.com. You may need to install the wapp from the store (free of charge).
 
